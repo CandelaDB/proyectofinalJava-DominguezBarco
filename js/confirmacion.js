@@ -1,5 +1,5 @@
-actualizarBotonCarrito();
 
+actualizarBotonCarrito();
 const carrito = JSON.parse(localStorage.getItem("carrito"));
 const datos_formulario = JSON.parse(localStorage.getItem("datos_formulario"));
 const resumen_compra = document.getElementById("resumen_compra");
@@ -10,9 +10,8 @@ let contenido = `<div class='col-md-6 bg-light p-3'>
 <ul class="list-group list-group-flush bg-light">`;
 
 for (let producto of carrito) {
-    contenido += `<li class="list-group-item bg-light">${producto.nombre} - $${producto.precio}</li>`;
-    total_pagar += producto.precio;
-}
+    contenido += `<li class="list-group-item bg-light">${producto.nombre} - $${producto.precio} - x${producto.cantidad}</li>`;
+    total_pagar += producto.precio * producto.cantidad;
 
 contenido += `</ul>
 <p class='list-group-item bg-light'>Total a Pagar: <b>$${total_pagar}</b></p>
@@ -27,8 +26,10 @@ contenido += `<div class='col-md-6 bg-light p-3'>
 <li class="list-group-item bg-light">Localidad: <b>${datos_formulario.usuario_localidad}</b></li>
 <li class="list-group-item bg-light">Provincia: <b>${datos_formulario.usuario_provincia}</b></li>
 </ul>
-</div>
+</div>         
 <div class='col-md-12 text-center p-5'>
-<button class='btn'>Finalizar Compra</button>
+<a href="./store.html"><button id="boton_fin" class='btn btn-dark'>Finalizar Compra</button></a>
 </div>`;
 resumen_compra.innerHTML = contenido;
+}
+
