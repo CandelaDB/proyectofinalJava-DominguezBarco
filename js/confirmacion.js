@@ -1,5 +1,5 @@
-
 actualizarBotonCarrito();
+
 const carrito = JSON.parse(localStorage.getItem("carrito"));
 const datos_formulario = JSON.parse(localStorage.getItem("datos_formulario"));
 const resumen_compra = document.getElementById("resumen_compra");
@@ -28,8 +28,8 @@ contenido += `<div class='col-md-6 bg-light p-3'>
 </ul>
 </div>         
 <div class='col-md-12 text-center p-5'>
-<a href="./store.html"><button id="boton_fin" class='btn btn-dark'>Finalizar Compra</button></a>
+<button class='btn btn-dark'>Finalizar Compra</button>
 </div>`;
-resumen_compra.innerHTML = contenido;
 }
+resumen_compra.innerHTML = contenido;
 
